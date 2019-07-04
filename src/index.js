@@ -1,47 +1,49 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import faker from 'faker';
+import CommentDetail from './CommentDetail';
+import ApprovalCard from './ApprovalCard';
 
 const App = () => {
-    faker.locale = "de";
+    faker.locale = "en_US";
+
+ 
+
     return (
         <div className="ui container comments">
-            <div className="comment">
-                <a href="/" className="avatar" >
-                    <img alt="avatar" src={ faker.image.avatar() }></img>
-                </a>
-                <div className="content">
-                    <a href="/" className="author">{ faker.name.firstName() }</a>
-                    <div className="metadata">
-                        <span className="date">Today at 6:00pm</span>
-                    </div>
-                    <div className="text">{ faker.lorem.sentence() }</div>
+            <ApprovalCard>
+                <div>
+                    <h4>Warning!</h4>
+                    Are you sure you want to do this?
                 </div>
-            </div>
-            <div className="comment">
-                <a href="/" className="avatar" >
-                    <img alt="avatar" src={ faker.image.avatar() }></img>
-                </a>
-                <div className="content">
-                    <a href="/" className="author">{ faker.name.firstName() }</a>
-                    <div className="metadata">
-                        <span className="date">Today at 6:00pm</span>
-                    </div>
-                    <div className="text">{ faker.lorem.sentence() }</div>
-                </div>
-            </div>
-            <div className="comment">
-                <a href="/" className="avatar" >
-                    <img alt="avatar" src={ faker.image.avatar() }></img>
-                </a>
-                <div className="content">
-                    <a href="/" className="author">{ faker.name.firstName() }</a>
-                    <div className="metadata">
-                        <span className="date">Today at 6:00pm</span>
-                    </div>
-                    <div className="text">{ faker.lorem.sentence() }</div>
-                </div>
-            </div>
+            </ApprovalCard>
+
+
+            <ApprovalCard>
+                <CommentDetail 
+                    author={ faker.name.firstName() } 
+                    timeAgo="Today at 4:23pm" 
+                    content="This is super nice" 
+                    avatar={ faker.image.avatar() }
+                />
+            </ApprovalCard>
+            <ApprovalCard>
+                <CommentDetail 
+                    author={ faker.name.firstName() }
+                    timeAgo="Today at  5:54pm" 
+                    content="This is super cool" 
+                    avatar={ faker.image.avatar() }
+                />
+            </ApprovalCard>
+            <ApprovalCard>
+                <CommentDetail 
+                    author={ faker.name.firstName() }
+                    timeAgo="Today at 7:12am" 
+                    content="This is super awesome" 
+                    avatar={ faker.image.avatar() }
+                />
+            </ApprovalCard>
+
         </div>
     );
 }
